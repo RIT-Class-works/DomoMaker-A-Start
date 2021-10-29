@@ -1,6 +1,6 @@
 const models = require('../models');
 
-const Account = models.Account;
+const { Account } = models;
 
 const loginPage = (req, res) => {
   res.render('login');
@@ -68,6 +68,6 @@ const signup = (req, res) => {
 
 module.exports.loginPage = loginPage;
 module.exports.login = login;
-module.exports.logout = logout; 
+module.exports.logout = logout;
 module.exports.signupPage = signupPage;
 module.exports.signup = signup;
