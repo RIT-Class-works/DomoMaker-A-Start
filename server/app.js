@@ -8,6 +8,7 @@ const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const expressHandlebars = require('express-handlebars');
+const session = require('express-session');
 
 // *10 Part 1
 
@@ -30,6 +31,12 @@ app.use(favicon(`${__dirname}/../hosted/img/favicon.png`));
 app.use(compression());
 app.use(bodyParser.urlencoded({
   extended: true,
+}));
+app.use(session({
+  key: 'sessionid',
+  secret: 'Domo Arigato',
+  resave: true,
+  saveUninitialized: true,
 }));
 app.engine('handlebars', expressHandlebars({ defaultLayout: 'main' }));
 app.set('view engine', 'handlebars');
